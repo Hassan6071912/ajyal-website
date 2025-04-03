@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الدخول</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>تسجيل الدخول</h2>
+        <select id="userType">
+            <option value="parent">ولي أمر</option>
+            <option value="admin">إدارة</option>
+        </select>
+        <input type="text" id="username" placeholder="اسم المستخدم">
+        <input type="password" id="password" placeholder="كلمة المرور">
+        <button onclick="login()">دخول</button>
+        <p id="loginMessage" style="color: white;"></p>
+        <p>ليس لديك حساب؟ <a href="signup.html">إنشاء حساب</a></p>
+    </div>
+
+    <script>
+        function login() {
+            let userType = document.getElementById("userType").value;
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+
+            if (userType === "admin" && username === "admin" && password === "1234") {
+                localStorage.setItem("userType", "admin");
+                window.location.href = "admin_dashboard.html";  
+            } else if (userType === "parent") {
+                let parents = JSON.parse(localStorage.getItem("parents")) || [];
+                let parentExists = parents.find(parent => parent.username === username && parent.password === password);
+
+                if (parentExists) {
+                    localStorage.setItem("userType", "parent");
+                    window.location.href = "index.html";  
+                } else {
+                    document.getElementById("loginMessage").innerText = "بيانات تسجيل الدخول غير صحيحة!";
+                }
+            } else {
+                document.getElementById("loginMessage").innerText = "بيانات تسجيل الدخول غير صحيحة!";
+            }
+        }
+    </script>
+</body>
+</html>

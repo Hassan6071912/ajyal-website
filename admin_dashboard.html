@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة تحكم الإدارة</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>مرحبا بك في لوحة تحكم الإدارة</h1>
+    <button id="logout">تسجيل الخروج</button>
+
+    <script>
+        // التأكد من أن المسؤول مسجل دخول
+        if (!localStorage.getItem("adminToken")) {
+            window.location.href = "admin-login.html";
+        }
+
+        document.getElementById("logout").addEventListener("click", function() {
+            localStorage.removeItem("adminToken");
+            window.location.href = "admin-login.html";
+        });
+    </script>
+</body>
+</html>

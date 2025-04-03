@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الطفل</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="register-container">
+        <h2>تسجيل طفلك في الفعاليات</h2>
+        <input type="text" id="childName" placeholder="اسم الطفل">
+        <input type="number" id="childAge" placeholder="عمر الطفل">
+        <input type="text" id="guardianName" placeholder="اسم ولي الأمر">
+        <input type="text" id="guardianPhone" placeholder="رقم جوال ولي الأمر">
+        <input type="text" id="nationalId" placeholder="رقم الهوية">
+        <select id="childHealth">
+            <option value="no">لا يعاني من أمراض</option>
+            <option value="yes">يعاني من أمراض</option>
+        </select>
+        <button onclick="registerChild()">تسجيل الطفل</button>
+        <p id="registerMessage" style="color: white;"></p>
+    </div>
+
+    <script>
+        function registerChild() {
+            let childName = document.getElementById("childName").value;
+            let childAge = document.getElementById("childAge").value;
+            let guardianName = document.getElementById("guardianName").value;
+            let guardianPhone = document.getElementById("guardianPhone").value;
+            let nationalId = document.getElementById("nationalId").value;
+            let childHealth = document.getElementById("childHealth").value;
+
+            if (childName && childAge && guardianName && guardianPhone && nationalId) {
+                let registrations = JSON.parse(localStorage.getItem("registrations")) || [];
+                registrations.push({ childName, childAge, guardianName, guardianPhone, nationalId, childHealth });
+                localStorage.setItem("registrations", JSON.stringify(registrations));
+
+                document.getElementById("registerMessage").innerText = "تم تسجيل الطفل بنجاح!";
+                setTimeout(() => location.reload(), 1500);
+            } else {
+                document.getElementById("registerMessage").innerText = "يرجى ملء جميع الحقول!";
+            }
+        }
+    </script>
+</body>
+</html>

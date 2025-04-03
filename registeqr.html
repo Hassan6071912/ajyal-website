@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل ولي أمر</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="register-container">
+        <h2>إنشاء حساب ولي أمر</h2>
+        <input type="text" id="parentName" placeholder="اسم ولي الأمر">
+        <input type="text" id="phoneNumber" placeholder="رقم الجوال">
+        <input type="email" id="email" placeholder="البريد الإلكتروني">
+        <input type="password" id="password" placeholder="كلمة المرور">
+        <button onclick="registerParent()">تسجيل</button>
+        <p id="registerMessage" style="color: white;"></p>
+    </div>
+
+    <script>
+        function registerParent() {
+            let name = document.getElementById("parentName").value;
+            let phone = document.getElementById("phoneNumber").value;
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            if (name && phone && email && password) {
+                let parentData = { name, phone, email, password };
+                localStorage.setItem(email, JSON.stringify(parentData));
+                document.getElementById("registerMessage").innerText = "تم تسجيل الحساب بنجاح!";
+                setTimeout(() => {
+                    window.location.href = "login_parent.html"; // تحويل إلى تسجيل الدخول
+                }, 2000);
+            } else {
+                document.getElementById("registerMessage").innerText = "الرجاء إدخال جميع البيانات!";
+            }
+        }
+    </script>
+</body>
+</html>
