@@ -902,59 +902,196 @@ img {
     justify-content: center; /* توسيط الصور */
     gap: 10px; /* مسافة بين الصور */
 }
-img {
-    width: 100%; /* جعل الصور تمتد بعرض الحاوية */
-    height: auto; /* الحفاظ على التناسب */
-    object-fit: cover; /* لضبط أبعاد الصورة داخل الحاوية */
+img 
+
+
+   /* إعدادات الجسم */
+body {
+    margin: 0;
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(to right, #007BFF, #00C6FF); /* خلفية زرقاء متدرجة */
+    display: flex;
+    justify-content: center; /* توسيط أفقياً */
+    align-items: center; /* توسيط عمودياً */
+    height: 100vh; /* ملء الصفحة بالكامل */
+    direction: rtl; /* اتجاه النص من اليمين لليسار */
+  }
+  
+  /* التنسيق الخاص بالنموذج */
+  .form-container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+    text-align: right;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .form-container:hover {
+    transform: translateY(-10px); /* تأثير التحرك عند المرور */
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+    color: #007BFF;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+  }
+  
+  /* تحسين تنسيق الحقول */
+  label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #333;
+  }
+  
+  input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+    transition: border 0.3s ease-in-out;
+  }
+  
+  input:focus {
+    border: 2px solid #007BFF; /* تغيير اللون عند التركيز */
+    outline: none;
+  }
+  
+  /* تحسين تنسيق الأزرار */
+  button {
+    width: 100%;
+    padding: 15px;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* تغيير اللون عند المرور */
+  }
+  
+  button:active {
+    background-color: #003f7d; /* تغيير اللون عند الضغط */
+  }
+  
+  /* إضافة تأثيرات للحقول عند التفاعل */
+  input[type="text"], input[type="number"], input[type="tel"] {
+    border-radius: 8px;
+    padding: 12px;
+    background-color: #f9f9f9;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    font-size: 16px;
+  }
+  
+  input[type="text"]:focus, input[type="number"]:focus, input[type="tel"]:focus {
+    border-color: #007BFF;
+    background-color: #f0f8ff;
+  }
+  
+  /* إضافة بعض المسافات */
+  .form-container {
+    padding: 30px;
+    margin: 20px;
+  }
+  
+  body.register-body {
+    background: linear-gradient(to right, #0072ff, #00c6ff);
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .register-container {
+    max-width: 450px;
+    margin: 80px auto;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    color: white;
+    text-align: center;
+    backdrop-filter: blur(8px);
+  }
+  
+  .register-container h2 {
+    margin-bottom: 25px;
+    font-size: 28px;
+  }
+  
+  .register-form input,
+  .register-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    font-size: 16px;
+    outline: none;
+  }
+  
+  .register-form input::placeholder,
+  .register-form textarea::placeholder {
+    color: rgba(255,255,255,0.8);
+  }
+  
+  .register-form textarea {
+    resize: none;
+    height: 100px;
+  }
+  
+  .register-btn {
+    background: white;
+    color: #0072ff;
+    padding: 12px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: 0.3s ease;
+  }
+  
+  .register-btn:hover {
+    background: #e0e0e0;
+    transform: scale(1.05);
+  }
+  
+  .register-form input,
+.register-form textarea {
+  color: #333; /* لون داكن للنص */
 }
 
-
-
-
-<!DOCTYPE html>
-<html lang="ar">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إنشاء حساب ولي أمر</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="signup-container">
-        <h2>إنشاء حساب جديد</h2>
-        <input type="text" id="parentName" placeholder="اسم ولي الأمر">
-        <input type="text" id="username" placeholder="اسم المستخدم">
-        <input type="password" id="password" placeholder="كلمة المرور">
-        <input type="text" id="phone" placeholder="رقم الجوال">
-        <button onclick="registerParent()">إنشاء حساب</button>
-        <p id="signupMessage" style="color: white;"></p>
-        <p>لديك حساب بالفعل؟ <a href="login.html">تسجيل الدخول</a></p>
-    </div>
-
-    <script>
-        function registerParent() {
-            let parentName = document.getElementById("parentName").value;
-            let username = document.getElementById("username").value;
-            let password = document.getElementById("password").value;
-            let phone = document.getElementById("phone").value;
-
-            if (parentName && username && password && phone) {
-                let parents = JSON.parse(localStorage.getItem("parents")) || [];
-                let userExists = parents.find(parent => parent.username === username);
-
-                if (userExists) {
-                    document.getElementById("signupMessage").innerText = "اسم المستخدم مسجل مسبقًا!";
-                } else {
-                    parents.push({ parentName, username, password, phone });
-                    localStorage.setItem("parents", JSON.stringify(parents));
-
-                    document.getElementById("signupMessage").innerText = "تم إنشاء الحساب بنجاح!";
-                    setTimeout(() => window.location.href = "login.html", 1500);
-                }
-            } else {
-                document.getElementById("signupMessage").innerText = "يرجى ملء جميع الحقول!";
-            }
-        }
-    </script>
-</body>
-</html>
+.register-form input::placeholder,
+.register-form textarea::placeholder {
+  color: #666; /* لون داكن للنص التوضيحي */
+}
+.register-form input,
+.register-form textarea {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+.register-container {
+    background: rgba(0, 0, 0, 0.5); /* خلفية سوداء شفافة */
+  }
+  .register-container {
+    backdrop-filter: blur(10px);
+  }
+  .register-form input,
+  .register-form textarea {
+    mix-blend-mode: difference;
+  }
+      

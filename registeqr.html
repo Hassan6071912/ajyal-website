@@ -1,40 +1,24 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تسجيل ولي أمر</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسجيل الطفل</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <div class="register-container">
-        <h2>إنشاء حساب ولي أمر</h2>
-        <input type="text" id="parentName" placeholder="اسم ولي الأمر">
-        <input type="text" id="phoneNumber" placeholder="رقم الجوال">
-        <input type="email" id="email" placeholder="البريد الإلكتروني">
-        <input type="password" id="password" placeholder="كلمة المرور">
-        <button onclick="registerParent()">تسجيل</button>
-        <p id="registerMessage" style="color: white;"></p>
-    </div>
+<body class="register-body">
 
-    <script>
-        function registerParent() {
-            let name = document.getElementById("parentName").value;
-            let phone = document.getElementById("phoneNumber").value;
-            let email = document.getElementById("email").value;
-            let password = document.getElementById("password").value;
+  <div class="register-container">
+    <h2>تسجيل الطفل في الأنشطة</h2>
+    <form action="#" method="post" class="register-form">
+      <input type="text" name="child_name" placeholder="اسم الطفل" required>
+      <input type="number" name="child_age" placeholder="العمر" required>
+      <input type="text" name="national_id" placeholder="رقم الهوية" required>
+      <input type="tel" name="parent_phone" placeholder="رقم ولي الأمر" required>
+      <textarea name="health_issues" placeholder="هل يعاني الطفل من أي أمراض؟ (اختياري)"></textarea>
+      <button type="submit" class="register-btn">تسجيل</button>
+    </form>
+  </div>
 
-            if (name && phone && email && password) {
-                let parentData = { name, phone, email, password };
-                localStorage.setItem(email, JSON.stringify(parentData));
-                document.getElementById("registerMessage").innerText = "تم تسجيل الحساب بنجاح!";
-                setTimeout(() => {
-                    window.location.href = "login_parent.html"; // تحويل إلى تسجيل الدخول
-                }, 2000);
-            } else {
-                document.getElementById("registerMessage").innerText = "الرجاء إدخال جميع البيانات!";
-            }
-        }
-    </script>
 </body>
 </html>
