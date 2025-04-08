@@ -1,58 +1,162 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>فريق أجيال التطوعي</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>منصة أجيال</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Cairo', sans-serif;
+      background: #e0f7fa;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: #4fc3f7;
+      color: white;
+      padding: 15px 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      font-size: 18px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 100px 20px 60px;
+      background: #b3e5fc;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      color: #01579b;
+    }
+
+    .hero p {
+      font-size: 20px;
+      color: #004d40;
+    }
+
+    .btn-register {
+      background-color: #ff80ab;
+      color: white;
+      padding: 12px 25px;
+      font-size: 18px;
+      border: none;
+      border-radius: 25px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    .btn-register:hover {
+      background-color: #f50057;
+    }
+
+    .about {
+      background-color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+
+    .about h2 {
+      font-size: 32px;
+      color: #00796b;
+    }
+
+    .about p {
+      font-size: 18px;
+      color: #444;
+      margin-top: 15px;
+    }
+
+    footer {
+      background-color: #0288d1;
+      color: white;
+      text-align: center;
+      padding: 15px 10px;
+      margin-top: 40px;
+    }
+
+    .shapes {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.3;
+      z-index: 0;
+    }
+
+    .star { background: #ffd54f; width: 50px; height: 50px; top: 20px; left: 10%; }
+    .heart { background: #f06292; width: 40px; height: 40px; top: 150px; left: 70%; }
+    .cloud { background: #ffffff; width: 80px; height: 50px; top: 100px; left: 40%; border-radius: 50px; }
+    .circle { background: #ba68c8; width: 30px; height: 30px; top: 200px; left: 80%; }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 32px; }
+      .hero p { font-size: 16px; }
+      .btn-register { font-size: 16px; }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <img src="./images/logo.png" alt="شعار الفريق" class="logo">
-            <ul>
-                <li><a href="index.html">الرئيسية</a></li>
-                <li><a href="index.html#about">من نحن</a></li>
-                <li><a href="activities.html">الأنشطة</a></li>
-                <li><a href="register.html">التسجيل</a></li>
-                <li><a href="contact.html">تواصل معنا</a></li>
-                <li><a href="login.html">تسجيل الدخول</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    
 
-    <title>موقعي التطوعي - سجل طفلك الآن!</title>
-<meta name="description" content="انضم إلى فريق أجيال التطوعي وسجل طفلك في الأنشطة التطوعية المميزة.">
+  <header>
+    <nav>
+      <a href="#">الرئيسية</a>
+      <a href="#about">من نحن</a>
+      <a href="#">الأنشطة</a>
+      <a href="register.html">تسجيل</a>
+    </nav>
+  </header>
 
-    <!-- قسم المقدمة (الهيرو) -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>انضم إلى فريق أجيال التطوعي</h1>
-            <p>ساهم معنا في بناء مستقبل مشرق للأطفال من خلال الأنشطة التطوعية الإبداعية.</p>
-            <a href="register.html" class="btn">سجل طفلك الآن</a>
-        </div>
-    </section>
+  <section class="hero">
+    <div class="shapes">
+      <div class="shape star"></div>
+      <div class="shape heart"></div>
+      <div class="shape cloud"></div>
+      <div class="shape circle"></div>
+    </div>
+    <h1>مرحبًا بكم في منصة أجيال</h1>
+    <p>نحن نهتم بإسعاد الأطفال من خلال فعاليات ممتعة وتعليمية!</p>
+    <a href="register.html"><button class="btn-register">سجل الآن</button></a>
+  </section>
 
-    <!-- قسم "من نحن" -->
-    <section class="about" id="about">
-        <h2>من نحن</h2>
-        <p>فريق أجيال التطوعي هو مجموعة من الشباب والشابات المبدعين، نسعى لإحداث فرق في حياة الأطفال من خلال الأنشطة التعليمية، الترفيهية، والإبداعية التي تساهم في تنمية مهاراتهم وتعزيز القيم الإيجابية لديهم.</p>
-        <p>نهدف إلى خلق بيئة آمنة للأطفال لتطوير إمكانياتهم والاندماج في المجتمع من خلال الفعاليات التطوعية المتميزة.</p>
-    </section>
+  <section class="about" id="about">
+    <h2>من نحن؟</h2>
+    <p>منصة أجيال تهدف إلى تعزيز القيم، المهارات، والمتعة للأطفال من خلال فعاليات ترفيهية وتعليمية متميزة.</p>
+  </section>
 
-    <footer>
-    
-    <footer>
-        <p>© 2025 فريق أجيال التطوعي</p>
-        <footer>
-            <a href="https://www.tiktok.com/@ajyalhtan1?is_from_webapp=1&sender_device=pc" target="_blank" class="tiktok-btn">
-                <img src="images/tik1.png" alt="TikTok">
-            </a>
-        </footer>
-        
-    </footer>
-    
-    </footer>
+  <footer>
+    جميع الحقوق محفوظة &copy; 2025 لمنصة أجيال
+  </footer>
+
 </body>
+</html>

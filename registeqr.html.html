@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>تسجيل الأطفال - منصة أجيال</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Tahoma', sans-serif;
+      background: #e0f7fa;
+      color: #333;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+
+    h2 {
+      text-align: center;
+      color: #007bb5;
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      color: #007bb5;
+      font-weight: bold;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-top: 5px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      outline: none;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 15px;
+      background-color: #ffb6c1;
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #f48fb1;
+    }
+
+    /* أشكال مرحة للأطفال */
+    .shape {
+      position: absolute;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    .circle {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: #ffeb3b;
+      top: -30px;
+      left: -30px;
+    }
+
+    .star {
+      width: 0;
+      height: 0;
+      border-left: 30px solid transparent;
+      border-right: 30px solid transparent;
+      border-bottom: 60px solid #ba68c8;
+      top: -20px;
+      right: -20px;
+      transform: rotate(35deg);
+    }
+
+    .cloud {
+      width: 120px;
+      height: 60px;
+      background: #b3e5fc;
+      border-radius: 50px;
+      top: 80%;
+      left: -30px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 10px;
+      margin-top: 30px;
+      color: #777;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="shape circle"></div>
+    <div class="shape star"></div>
+    <div class="shape cloud"></div>
+
+    <h2>تسجيل الطفل</h2>
+    <form>
+      <label for="name">الاسم الكامل</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="phone">رقم الجوال</label>
+      <input type="tel" id="phone" name="phone" required />
+
+      <label for="gender">الجنس</label>
+      <select id="gender" name="gender" required>
+        <option value="">اختر الجنس</option>
+        <option value="ذكر">ذكر</option>
+        <option value="أنثى">أنثى</option>
+      </select>
+
+      <label for="age">العمر</label>
+      <input type="number" id="age" name="age" required />
+
+      <label for="id">رقم الهوية</label>
+      <input type="text" id="id" name="id" required />
+
+      <button type="submit">تسجيل</button>
+    </form>
+  </div>
+
+  <div class="footer">
+    جميع الحقوق محفوظة © منصة أجيال
+  </div>
+
+</body>
+</html>
