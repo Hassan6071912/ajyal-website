@@ -5,158 +5,222 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>منصة أجيال</title>
   <style>
-    body {
+    * {
       margin: 0;
-      font-family: 'Cairo', sans-serif;
-      background: #e0f7fa;
-      overflow-x: hidden;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Tahoma', sans-serif;
     }
 
-    header {
-      background-color: #4fc3f7;
-      color: white;
-      padding: 15px 0;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 999;
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
     }
 
     nav {
-      display: flex;
-      justify-content: center;
-      gap: 30px;
-      font-size: 18px;
+      background-color: #67c9f5;
+      padding: 15px 10px;
     }
 
-    nav a {
-      color: white;
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    nav ul li a {
       text-decoration: none;
+      color: white;
       font-weight: bold;
     }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .hero {
-      text-align: center;
-      padding: 100px 20px 60px;
-      background: #b3e5fc;
-      position: relative;
-    }
-
-    .hero h1 {
-      font-size: 48px;
-      color: #01579b;
-    }
-
-    .hero p {
-      font-size: 20px;
-      color: #004d40;
-    }
-
-    .btn-register {
-      background-color: #ff80ab;
-      color: white;
-      padding: 12px 25px;
-      font-size: 18px;
-      border: none;
-      border-radius: 25px;
-      margin-top: 20px;
-      cursor: pointer;
-      transition: 0.3s ease;
-    }
-
-    .btn-register:hover {
-      background-color: #f50057;
-    }
-
-    .about {
-      background-color: white;
-      padding: 60px 20px;
-      text-align: center;
-    }
-
-    .about h2 {
-      font-size: 32px;
-      color: #00796b;
-    }
-
-    .about p {
-      font-size: 18px;
-      color: #444;
-      margin-top: 15px;
-    }
-
-    footer {
-      background-color: #0288d1;
-      color: white;
-      text-align: center;
-      padding: 15px 10px;
-      margin-top: 40px;
-    }
-
-    .shapes {
+    .menu-toggle {
+      display: none;
+      font-size: 30px;
       position: absolute;
+      top: 15px;
+      left: 20px;
+      color: white;
+      cursor: pointer;
+      z-index: 1001;
+    }
+
+    .side-menu {
+      display: none;
+      position: fixed;
       top: 0;
       left: 0;
-      width: 100%;
+      width: 200px;
       height: 100%;
+      background-color: #67c9f5;
+      padding: 60px 20px;
+      z-index: 1000;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .side-menu a {
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      margin-bottom: 10px;
+    }
+
+    .side-menu.show {
+      display: flex;
+    }
+
+    header {
+      background-color: #bdeeff;
+      padding: 130px 20px;
+      text-align: center;
+      position: relative;
       overflow: hidden;
-      z-index: 0;
+    }
+
+    header h1 {
+      font-size: 26px;
+      color: #004080;
+      margin-bottom: 15px;
+    }
+
+    header p {
+      font-size: 18px;
+      color: #333;
+      margin-bottom: 25px;
+    }
+
+    .btn {
+      background-color: #ff82a9;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 40px 20px;
+      text-align: center;
+    }
+
+    section h2 {
+      color: #007155;
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    section p {
+      font-size: 16px;
+      color: #333;
     }
 
     .shape {
       position: absolute;
       border-radius: 50%;
       opacity: 0.3;
-      z-index: 0;
     }
 
-    .star { background: #ffd54f; width: 50px; height: 50px; top: 20px; left: 10%; }
-    .heart { background: #f06292; width: 40px; height: 40px; top: 150px; left: 70%; }
-    .cloud { background: #ffffff; width: 80px; height: 50px; top: 100px; left: 40%; border-radius: 50px; }
-    .circle { background: #ba68c8; width: 30px; height: 30px; top: 200px; left: 80%; }
+    .circle1 {
+      width: 60px;
+      height: 60px;
+      background-color: yellow;
+      top: 20px;
+      right: 20px;
+    }
+
+    .circle2 {
+      width: 80px;
+      height: 80px;
+      background-color: pink;
+      bottom: 30px;
+      left: 30px;
+    }
+
+    .circle3 {
+      width: 70px;
+      height: 70px;
+      background-color: #a88ef0;
+      top: 100px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    footer {
+      background-color: #67c9f5;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      margin-top: auto;
+    }
+
+    .content {
+      flex: 1;
+    }
 
     @media (max-width: 768px) {
-      .hero h1 { font-size: 32px; }
-      .hero p { font-size: 16px; }
-      .btn-register { font-size: 16px; }
+      nav ul {
+        display: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <nav>
-      <a href="#">الرئيسية</a>
-      <a href="#about">من نحن</a>
-      <a href="#">الأنشطة</a>
-      <a href="register.html">تسجيل</a>
-    </nav>
-  </header>
+  <div class="menu-toggle" onclick="toggleMenu()">&#9776;</div>
 
-  <section class="hero">
-    <div class="shapes">
-      <div class="shape star"></div>
-      <div class="shape heart"></div>
-      <div class="shape cloud"></div>
-      <div class="shape circle"></div>
-    </div>
-    <h1>مرحبًا بكم في منصة أجيال</h1>
-    <p>نحن نهتم بإسعاد الأطفال من خلال فعاليات ممتعة وتعليمية!</p>
-    <a href="register.html"><button class="btn-register">سجل الآن</button></a>
-  </section>
+  <div class="side-menu" id="sideMenu">
+    <a href="index.html">الرئيسية</a>
+    <a href="about.html">من نحن</a>
+    <a href="activities.html">الأنشطة</a>
+    <a href="register.html">تسجيل</a>
+  </div>
 
-  <section class="about" id="about">
-    <h2>من نحن؟</h2>
-    <p>منصة أجيال تهدف إلى تعزيز القيم، المهارات، والمتعة للأطفال من خلال فعاليات ترفيهية وتعليمية متميزة.</p>
-  </section>
+  <nav>
+    <ul>
+      <li><a href="index.html">الرئيسية</a></li>
+      <li><a href="about.html">من نحن</a></li>
+      <li><a href="activities.html">الأنشطة</a></li>
+      <li><a href="register.html">تسجيل</a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+    <header>
+      <div class="shape circle1"></div>
+      <div class="shape circle2"></div>
+      <div class="shape circle3"></div>
+      <h1>مرحباً بكم في منصة أجيال</h1>
+      <p>نحن نهتم بإسعاد الأطفال من خلال فعاليات ممتعة وتعليمية!</p>
+      <a href="register.html"><button class="btn">سجل الآن</button></a>
+    </header>
+
+    <section>
+      <h2>من نحن؟</h2>
+      <p>منصة أجيال تهدف إلى تعزيز القيم، المهارات، والمتعة للأطفال من خلال فعاليات ترفيهية وتعليمية متميزة.</p>
+    </section>
+  </div>
 
   <footer>
-    جميع الحقوق محفوظة &copy; 2025 لمنصة أجيال
+    جميع الحقوق محفوظة © 2025 لمنصة أجيال
   </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById("sideMenu").classList.toggle("show");
+    }
+  </script>
 
 </body>
 </html>
